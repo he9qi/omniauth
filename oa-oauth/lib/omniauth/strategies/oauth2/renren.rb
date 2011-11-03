@@ -53,7 +53,8 @@ module OmniAuth
       end
 
       def session_key
-        @session_key ||= MultiJson.decode(@access_token.get('/renren_api/session_key'))
+        @session_key ||= @access_token.get('/renren_api/session_key').parsed
+        # @session_key ||= MultiJson.decode(@access_token.get('/renren_api/session_key'))
       end
 
       def request_phase
